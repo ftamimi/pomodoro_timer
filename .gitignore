@@ -1,2 +1,3 @@
 # remove virtual environments
 venv
+.DS_Store

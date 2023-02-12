@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
 # Python 3.x code
 # Imports
 import tkinter
+from pygame import mixer
 from tkinter import messagebox
 import datetime
 import time
@@ -11,17 +13,26 @@ def run_alert(message):
     now = datetime.datetime.now()
     print ("Current date and time : ")
     print (now.strftime("%Y-%m-%d %H:%M:%S"))
+    current_time= now.strftime("%Y-%m-%d %H:%M:%S")
     print()
-    time.sleep(1500)
     root = tkinter.Tk()
     root.wm_attributes("-topmost", 1)
     root.withdraw()
+    # a = tkinter.Label(root, text=f"Current date and time : {current_time}")
+    # a.pack()
+    # root.mainloop()
+
+    time.sleep(1500)
+
 
     # Message Box
     print('Timer done')
     now = datetime.datetime.now()
     print ("Current date and time : ")
     print (now.strftime("%Y-%m-%d %H:%M:%S"))
+    mixer.init()
+    mixer.music.load('alarm.mp3')
+    mixer.music.play()
 
     messagebox.showinfo("PomoTimer", message, parent=root)
 
